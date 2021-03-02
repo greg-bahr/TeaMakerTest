@@ -40,7 +40,7 @@ class AccountTest {
         Date start = formatter.parse(str_start);
         Date end = formatter.parse(str_end);
 
-        assertEquals(230, anAccount.getSalesBetween(start, end));
+        assertEquals(230, anAccount.getSalesBetween(new DateRange(start, end)));
     }
 
     @Test
@@ -52,7 +52,7 @@ class AccountTest {
         Date start = formatter.parse(str_start);
         Date end   = formatter.parse(str_end);
 
-        assertEquals(100, anAccount.getSalesBetween(start, end));
+        assertEquals(100, anAccount.getSalesBetween(new DateRange(start, end)));
     }
 
     @Test
@@ -64,7 +64,7 @@ class AccountTest {
         Date start = formatter.parse(str_start);
         Date end   = formatter.parse(str_end);
 
-        assertEquals(100, anAccount.getSalesBetween(end, start));
+        assertEquals(100, anAccount.getSalesBetween(new DateRange(end, start)));
     }
 
     @Test
@@ -76,6 +76,6 @@ class AccountTest {
         Date start = formatter.parse(str_start);
         Date end   = formatter.parse(str_end);
 
-        assertEquals(0, anAccount.getSalesBetween(end, start));
+        assertEquals(0, anAccount.getSalesBetween(new DateRange(end, start)));
     }
 }
